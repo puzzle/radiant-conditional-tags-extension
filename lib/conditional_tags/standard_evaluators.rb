@@ -75,7 +75,7 @@ module ConditionalTags
       tag.locals.page.children.length
     end
 
-    evaluator "children.index" do |tag element_info|
+    evaluator "children.index" do |tag, element_info|
       kind = element_info[:index] ||= :current
       case kind.to_sym
         when :current
@@ -90,5 +90,6 @@ module ConditionalTags
         else
           raise TagError.new(%{index of `children.index' evaluator must be set to either "current" or "last"})
       end
+    end
   end
 end
